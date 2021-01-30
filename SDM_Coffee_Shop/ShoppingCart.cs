@@ -50,14 +50,10 @@ namespace SDM_Coffee_Shop
 
         public IBeverage GetBeverageInCart(int id)
         {            
-            foreach (var drink in _beverages)
-            {
-                if (drink.ID == id)
-                {
-                    return drink;
-                }
-            }
-            return null;
+           
+            var drink = _beverages.Where(x => x.ID == id).FirstOrDefault();
+
+            return drink;
         }
         public void RemoveBeverageFromCart(IBeverage beverageToRemove)
         {
